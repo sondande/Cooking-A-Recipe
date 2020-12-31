@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Register</title>
+{% endblock %}
+
+{% block content %}
+<div class="login_register_container">
+    <h3 class="title">Sign Up</h3>
+    
+    <div class="login_Register_Box_container">
+        <div class="error">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="error_notification">
+                    {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+                </div>
+            {% endif %}
+            {% endwith %}
+        </div>
+
+        <form action="/register" method="POST">
+            <div class="field">
+                <input class="input large" type="email" type="email" name='login_username' id='login_username' placeholder="Email Address" autofocus>
+            </div>
+
+            <div class="field">
+            Password: <input class="input large" type="text" name='login_password' id='login_password'>
+            </div>
+            
+            <div class="field">
+                <label class="checkbox">
+                    Remember Me <input type="checkbox">
+                </label> 
+            </div>
+            <button class="button large">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

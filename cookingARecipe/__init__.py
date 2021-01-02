@@ -1,39 +1,34 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-import os
 
-# init SQLAlchemy so we can use it later in our models
-db = SQLAlchemy()
+db=SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_mapping(
-        SECRET_KEY = os.urandom(26)
-    )
-    #app.config['SECRET_KEY'] = os.urandom(26)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path,'cookingARecipe.db')
+    app.config['SECRET_KEY'] = os.urandom(26)
+
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+ os.path.join(basedir, "cAR.db")
 
     db.init_app(app)
 
     login_manager = LoginManager()
-    login_manager.login_view = 'auth.login'
+    #login_view is the name of absolute URL of the view that a person needs to go to for login required sections
+    login_manager.login_view="auth.login"
     login_manager.init_app(app)
 
     from .models import User
 
-    #this is needed so we can reload the user object from the user's id that is stored in the current session
     @login_manager.user_loader
     def load_user(user_id):
-        # since the user_id is just the primary key of our user table, use it in the query for the user
-        return User.query.get(int(user_id))
+        return User.query.get(user_id)
 
-    # blueprint for auth routes in our app
-    from .auth import auth as auth_blueprint
-    app.register_blueprint(auth_blueprint)
+    from .auth import auth
+    app.register_blueprint(auth)
 
-    # blueprint for non-auth parts of app
-    from .main import main as main_blueprint
-    app.register_blueprint(main_blueprint)
+    from .main import main
+    app.register_blueprint(main)
 
     return app

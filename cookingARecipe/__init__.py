@@ -31,4 +31,7 @@ def create_app():
     from .main import main
     app.register_blueprint(main)
 
+    from .profile import profile
+    app.register_blueprint(profile)
+
     return app

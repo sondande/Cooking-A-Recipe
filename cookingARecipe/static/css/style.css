@@ -1,0 +1,38 @@
+body{
+    background-color: tan;
+    margin: 0;
+    font-family:fantasy;
+}
+h1 {
+    border: 2px #eee solid;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+.navbar{
+    background-color: #780609;
+    padding: 15px;
+}
+.navbar a{
+    justify-content:space-around;
+    text-decoration: none;
+    padding-bottom: 1px;
+    color: white;
+    text-transform: uppercase;
+    text-align: left;
+    transition: font-size 1s;
+    border-bottom: 1px solid black;
+}
+
+.navbar a:hover {
+    border-bottom: 1px solid black;
+    color: #0003;
+    font-size: 1.5em;
+}
+
+pre{
+    border: 2px #eee solid;
+    text-align:center;
+    border-right: 10px;
+    font-family: fantasy
+}

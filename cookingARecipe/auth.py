@@ -24,7 +24,7 @@ def login():
             return redirect(url_for('auth.login'))
 
         login_user(user, remember=remember)
-        return redirect(url_for('main.profile'))
+        return redirect(url_for('profile.profilePage'))
     else:
         return render_template('login.html')
 

@@ -12,17 +12,24 @@
 <body>
     <div class="navbar">
         <a class="nav-element" href="/">Home</a>
-        {% if current_user.is_authenticated %}
-            <a href="/loggedin/profile">Profile</a>
-        {% endif %} 
-        
+   
         {% if not current_user.is_authenticated %}
             <a class="nav-element" href="/login">Login</a>
             <a class="nav-element" href="/signup">Sign Up</a>      
         {% endif %}
+        
         {% if current_user.is_authenticated %}
-            <a hclass="nav-element" href="/logout">Logout</a>
+            <a href="/loggedin/profile">Profile</a>
+        {% endif %} 
+        
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('profile.viewRecipes') }}">View Recipes</a>
         {% endif %}
+
+        {% if current_user.is_authenticated %}
+            <a class="nav-element" href="/logout">Logout</a>
+        {% endif %}
+
     </div>
     {% block body %} {% endblock %}
 </body>

@@ -9,12 +9,12 @@ body{
     height: 400px;
     width: auto;
     position: relative;
-    left: 10%;
-    right: 10%;
+    margin: 5%;
     padding: 10px;
     grid-column: auto;
     grid-row: 1 / -1;      /* from first line at start, to first line at end */
-    align-self: center;    /* vertical centering */
+    /* align-self: center; */    /* vertical centering */
+    place-self: center; /*centers image to be in the center of it's individual grid on CSS grid*/
 }
 
 .portfolio-items {
@@ -23,7 +23,6 @@ body{
 }
 
 .container {
-    border-right: 10px;
     background: whitesmoke;
     font-family: fantasy;
     text-align: center;
@@ -32,13 +31,13 @@ body{
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /*look up transform :translate and their functions*/
     border: 5px solid #ffd100;
     padding: 10px;
 }
 
 h1 {
-    border: 2px #eee solid;
+    /*border: 2px #eee solid;*/
     color: #2f2f2f;
     text-align: center;
     padding: 10px;
@@ -67,9 +66,17 @@ h1 {
     font-size: 1.1em;
 }
 
+/* Borders for text */
+.borderColor{
+    border: 2px #ab885d solid;
+}
+
+/* Borders for forms*/
+.borderColorLR{
+    border: 10px #c79f38 solid;
+}
 /*Index.html */
 pre{
-    border: 2px #eee solid;
     text-align:center;
     border-right: 10px;
     font-family: fantasy

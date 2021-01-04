@@ -7,6 +7,6 @@
 {% endblock %}
 
 {% block body %}
-<h1>Welcome! Profile Page</h1>
-<a href="/loggedin/viewrecipes">View Recipes</a>
+<h1>Welcome! {{ name }}</h1>
+<a href="{{ url_for('profile.viewRecipes') }}">View Recipes</a>
 {% endblock %}

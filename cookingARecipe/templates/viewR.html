@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{ recipe.Recipe_Title }}</title>
+{% endblock %}
+
+{% block body %}
+    Title: {{ recipe.Recipe_Title }}
+    <div onclick = "getPdf()">       
+        <img src="{{ url_for('static', filename='download.png') }}" alt="Download" height="20" width="20">
+    </div>
+    Recipe #{{ recipe.id }}<br>
+    Date Posted: {{ recipe.Recipe_Date_Posted }}
+    Type: {{ recipe.Recipe_Type }}<br>
+    Ingredients: {{ recipe.Recipe_Ingredients }}<br>
+    Prep Time: {{ recipe.Recipe_Expected_Prep_Time }}<br>
+    Cook Time: {{ recipe.Recipe_Expected_Cook_Time  }} <br>
+    Instructions: {{ recipe.Recipe_Instructions }}<br>
+
+    <script>
+        function getPdf() {
+            window.print()
+        }
+    </script>
+{% endblock%}

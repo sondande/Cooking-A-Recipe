@@ -4,6 +4,18 @@ body{
     font-family:fantasy;
 }
 
+button#downloadBtn {
+    background-color: #4CAF50; /* Green */
+    background-image: url("download.png");
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 .images > img {
     object-fit: cover;
     height: 400px;
@@ -26,13 +38,12 @@ body{
     background: whitesmoke;
     font-family: fantasy;
     text-align: center;
-    width: 300px;
+    width: 350px;
     height: 200px;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); /*look up transform :translate and their functions*/
-    border: 5px solid #ffd100;
     padding: 10px;
 }
 
@@ -58,6 +69,8 @@ h1 {
     transition: font-size 1s;
     border-bottom: 1px solid #2f2f2f;
     font-size: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .navbar a:hover {

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Add Recipe</title>
+{% endblock %}
+
+{% block body %}
+<div class="addrecipes">
+    <div class="imageUpload">
+
+    </div>
+
+    <div class="content-wrapper">
+        <form class="add-form" action="{{ url_for('profile.addRecipe') }}" method="POST">
+            <div class='recipe-title-wrapper'>
+                <label class="recipe-title-label" for="Recipe_Title">Recipe Title: </label>
+                <input class="add-form-item" name="Recipe_Title" id="Recipe_Title" placeholder="Recipe Title" type="text"><br>
+            </div>
+
+            <div class="recipe-type-wrapper">
+                <label class="type-of-recipe-label" for="breakfast">Breakfast</label>
+                <input type="radio" class="add-form-item recipeType" id="breakfast" name="type-of-meal" value="Breakfast"> 
+                <label class="type-of-recipe-label" for="lunch">Lunch</label>
+                <input type="radio" class="add-form-item recipeType" id="lunch" name="type-of-meal" value="Lunch"> 
+                <label class="type-of-recipe-label" for="breakfast">Dinner</label>
+                <input type="radio" class="add-form-item recipeType" id="dinner" name="type-of-meal" value="Dinner"> 
+                <label class="type-of-recipe-label" for="desert">Desert</label>
+                <input type="radio" class="add-form-item recipeType" id="desert" name="type-of-meal" value="Desert"><br> 
+            </div> 
+            
+            <div class="recipe-expected-time-wrapper">
+                <label class="time-label" for="prep">Prep Time: </label>
+                <input class"add-form-item recipe-expected-prep-time" id="prep" name="prep" type="text" placeholder="00:00">
+                <label class="time-label" for="time-hrs-prep">hrs</label>
+                <input type="radio" class="add-form-item time" id="time_hrs-prep" name="time_prep"> 
+                <label class="time-label" for="time-mins-prep">mins</label>
+                <input type="radio" class="add-form-item time" id="time-mins-prep" name="time_prep"> 
+                
+                <br>
+
+                <label class="time-label" for="cook">Cook Time: </label>
+                <input class"add-form-item recipe-expected-cooking-time" type="text" id='cook' name='cook' placeholder="00:00"> 
+                <label class="time-label" for="hr">hrs</label>
+                <input type="radio" class="add-form-item time" id="time_hrs-cook" name="time_cook"> 
+                <label class="time-label" for="minutes">mins</label>
+                <input type="radio" class="add-form-item time" id="time_mins-cook" name="time_cook"> 
+            </div>
+
+            <div class="recipe-ingredients-wrapper">
+               <!-- List of Ingredient:
+                <form id="todoForm" action="/addrecipes-ingredients" method="POST">
+                    <input id="ingredientsInput" name='ingredientsInput'>
+                    <button type="button" onclick="todoList()">Add</button>
+                </form>
+                <ul id="ingredientsList">
+                </ul>
+                <script>
+                    function todoList() {
+                        var item = document.getElementById("ingredientsInput").value
+                        var text = document.createTextNode(item)
+                        var newItem = document.createElement("li")
+                        newItem.appendChild(text)
+                        document.getElementById("ingredientsList").appendChild(newItem)
+                    }
+                </script>-->
+                Ingredients:
+                <input class="ingredients" name="ingredients" id="ingredients" type="text" placeholder="apples,bananas,....."> 
+
+            </div>
+            
+            <div class="recipe-instructions-wrapper">
+                <label class="instructions-label" for="instructions">Instructions: </label>
+                <input class="instructions" id="instructions" name="instructions" type="text"> 
+            </div>
+                
+            <div class="recipe-submit-wrapper">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

@@ -23,11 +23,10 @@
         {% endif %} 
         
         {% if current_user.is_authenticated %}
-        <a href="{{ url_for('profile.viewRecipes') }}">View Recipes</a>
-        {% endif %}
-
-        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('profile.viewRecipes') }}">View Recipes</a>
+            <a href="{{ url_for('profile.addRecipe') }}">Add Recipes</a>
             <a class="nav-element" href="/logout">Logout</a>
+
         {% endif %}
 
     </div>

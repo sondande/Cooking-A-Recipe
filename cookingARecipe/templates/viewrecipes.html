@@ -5,5 +5,12 @@
 {% endblock %}
 
 {% block body %}
-<h1>Recipes</h1>
+    <h1 class="borderColor">Recipes</h1>
+    <div class="content-wrapper">
+        {% for recipe in recipes %}
+
+        <a href="/loggedin/viewrecipes/{{ recipe.id }}">{{ recipe }}</a>
+        
+        {% endfor %}
+    </div>
 {% endblock %}

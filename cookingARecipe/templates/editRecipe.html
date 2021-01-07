@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Edit Recipe</title>
+{% endblock %}
+
+{% block body %}
+<div class="imageUpload">
+    <h1>Edit Recipe:</h1>
+    <div class="imageUpload">
+
+    </div>
+
+    <div class="content-wrapper">
+        <form class="add-form" action="/loggedin/viewrecipes/edit/{{ recipe.id }}" method="POST">
+            <div class='recipe-title-wrapper'>
+                <label class="recipe-title-label" for="Recipe_Title">Recipe Title: </label>
+                <input class="add-form-item" name="Recipe_Title" id="Recipe_Title" type="text" value={{ recipe.Recipe_Title }} required><br>
+            </div>
+
+            <div class="recipe-type-wrapper">
+                <label class="type-of-recipe-label" for="breakfast">Breakfast</label>
+                {% if recipe.Recipe_Type == "Breakfast"%}
+                    <input type="radio" class="add-form-item recipeType" id="breakfast1" name="type-of-meal" value="Breakfast" checked required>
+                {% else %}
+                    <input type="radio" class="add-form-item recipeType" id="breakfast2" name="type-of-meal" value="Breakfast">
+                {% endif %}
+                
+                <label class="type-of-recipe-label" for="lunch">Lunch</label>
+                {% if recipe.Recipe_Type == "Lunch" %}
+                    <input type="radio" class="add-form-item recipeType" id="lunch1" name="type-of-meal" value="Lunch" checked>
+                {% else %}
+                    <input type="radio" class="add-form-item recipeType" id="lunch2" name="type-of-meal" value="Lunch">
+                {% endif %}
+
+                <label class="type-of-recipe-label" for="breakfast">Dinner</label>
+                {% if recipe.Recipe_Type == "Dinner" %}
+                    <input type="radio" class="add-form-item recipeType" id="dinner1" name="type-of-meal" value="Dinner" checked> 
+                {% else %}
+                    <input type="radio" class="add-form-item recipeType" id="dinner2" name="type-of-meal" value="Dinner"> 
+                {% endif %}
+
+                <label class="type-of-recipe-label" for="desert">Desert</label>
+                {% if recipe.Recipe_Type == "Desert" %}
+                    <input type="radio" class="add-form-item recipeType" id="desert1" name="type-of-meal" value="Desert" checked>
+                {% else %}
+                    <input type="radio" class="add-form-item recipeType" id="desert2" name="type-of-meal" value="Desert">
+                {% endif %}
+
+                <br> 
+            </div> 
+            
+            <div class="recipe-expected-time-wrapper">
+                <label class="time-label" for="prep">Prep Time: </label>
+                <input class"add-form-item recipe-expected-prep-time" id="prep" name="prep" type="text" value={{ recipe.Recipe_Expected_Prep_Time }} required>
+                
+                <label class="time-label" for="time-hrs-prep">hrs</label>
+                {% if recipe.Recipe_Time_Prep == "hrs" %}
+                    <input type="radio" class="add-form-item time" id="time_hrs-prep1" name="time_prep" value="hrs" checked  required> 
+                {% else %}
+                    <input type="radio" class="add-form-item time" id="time_hrs-prep2" name="time_prep" value="hrs" required> 
+                {% endif %}
+                
+                <label class="time-label" for="time-mins-prep">mins</label>
+                {% if recipe.Recipe_Time_Prep == "mins" %}
+                    <input type="radio" class="add-form-item time" id="time-mins-prep1" name="time_prep" value="mins" checked> 
+                {% else %}
+                    <input type="radio" class="add-form-item time" id="time-mins-prep2" name="time_prep" value="mins"> 
+                {% endif %}
+                
+                <br>
+
+                <label class="time-label" for="cook">Cook Time: </label>
+                <input class"add-form-item recipe-expected-cooking-time" type="text" id='cook' name='cook' value={{ recipe.Recipe_Expected_Cook_Time }} required>
+                
+                <label class="time-label" for="hr">hrs</label>
+                {% if recipe.Recipe_Time_Cook == "hrs" %}
+                    <input type="radio" class="add-form-item time" id="time_hrs-cook1" name="time_cook" value="hrs" required checked>
+                {% else %}
+                    <input type="radio" class="add-form-item time" id="time_hrs-cook2" name="time_cook" value="hrs" required>
+                {% endif %}
+
+                <label class="time-label" for="minutes">mins</label>
+                {% if recipe.Recipe_Time_Cook == 'mins' %}
+                    <input type="radio" class="add-form-item time" id="time_mins-cook1" name="time_cook" value="mins" checked>
+                {% else %}
+                    <input type="radio" class="add-form-item time" id="time_mins-cook2" name="time_cook" value="mins">
+                {% endif %}
+            </div>
+
+            <div class="recipe-ingredients-wrapper">
+                Ingredients:
+                <input class="ingredients" name="ingredients" id="ingredients" type="text" value={{ recipe.Recipe_Ingredients }} required> 
+
+            </div>
+            
+            <div class="recipe-instructions-wrapper">
+                <label class="instructions-label" for="instructions">Instructions: </label>
+                <input class="instructions" id="instructions" name="instructions" type="text" value={{ recipe.Recipe_Instructions }} required> 
+            </div>
+                
+            <div class="recipe-submit-wrapper">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

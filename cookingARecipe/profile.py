@@ -20,8 +20,8 @@ def viewRecipes():
 @profile.route('/viewrecipes/<int:id>')
 @login_required
 def viewRecipeDetails(id):
-    recipe_id= Recipes.query.get_or_404(id)
-    return render_template('viewR.html', recipe=recipe_id)
+    recipe= Recipes.query.get_or_404(id)
+    return render_template('viewR.html', recipe=recipe)
 
 @profile.route('/addrecipe', methods=['POST', 'GET'])
 @login_required
@@ -31,14 +31,42 @@ def addRecipe():
         recipe_type= request.form['type-of-meal']
         recipe_ingredients= request.form['ingredients']
         recipe_instructions=request.form['instructions']
-        recipe_expected_prep_time=request.form['prep']
+        recipe_expected_prep_time = request.form['prep']
+        recipe_time_prep= request.form['time_prep']
         recipe_expected_cook_time = request.form['cook']
-        new_recipe= Recipes(Recipe_Title=recipe_title, Recipe_Type=recipe_type, Recipe_Ingredients=recipe_ingredients, Recipe_Instructions=recipe_instructions, Recipe_Expected_Prep_Time = recipe_expected_prep_time, Recipe_Expected_Cook_Time= recipe_expected_cook_time)
+        recipe_time_cook= request.form['time_cook']
+        new_recipe= Recipes(Recipe_Title=recipe_title, Recipe_Type=recipe_type, Recipe_Ingredients=recipe_ingredients, Recipe_Instructions=recipe_instructions, Recipe_Expected_Prep_Time = recipe_expected_prep_time, Recipe_Time_Prep=recipe_time_prep, Recipe_Time_Cook=recipe_time_cook, Recipe_Expected_Cook_Time= recipe_expected_cook_time)
         db.session.add(new_recipe)
         db.session.commit()
         return redirect(url_for('profile.viewRecipes'))
     else:
         return render_template('addrecipe.html')
+
+@profile.route('/viewrecipes/edit/<int:id>', methods=['POST', 'GET'])
+@login_required
+def editRecipe(id):
+    recipe= Recipes.query.get_or_404(id)
+    if request.method == 'POST':
+        recipe.Recipe_Title = request.form['Recipe_Title']
+        recipe.Recipe_Type = request.form['type-of-meal']
+        recipe.Recipe_Ingredients = request.form['ingredients']
+        recipe.Recipe_Instructions =request.form['instructions']
+        recipe.Recipe_Expected_Prep_Time = request.form['prep']
+        recipe.Recipe_Time_Prep = request.form['time_prep']
+        recipe.Recipe_Expected_Cook_Time = request.form['cook']
+        recipe.Recipe_Time_Cook = request.form['time_cook']
+        db.session.commit()
+        return redirect(url_for('profile.viewRecipes'))
+    else:
+        return render_template('editRecipe.html', recipe=recipe)
+
+@profile.route('/viewrecipes/<int:id>/delete')
+@login_required
+def deleteRecipe(id):
+    recipe= Recipes.query.get_or_404(id)
+    db.session.delete(recipe)
+    db.session.commit()
+    return redirect(url_for('profile.viewRecipes'))
 
 #@profile.route("/addrecipes-ingredients", methods=['POST'])
 #@login_required

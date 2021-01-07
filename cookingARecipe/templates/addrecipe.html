@@ -6,6 +6,7 @@
 
 {% block body %}
 <div class="addrecipes">
+    <h1>Add Recipe</h1>
     <div class="imageUpload">
 
     </div>
@@ -14,12 +15,12 @@
         <form class="add-form" action="{{ url_for('profile.addRecipe') }}" method="POST">
             <div class='recipe-title-wrapper'>
                 <label class="recipe-title-label" for="Recipe_Title">Recipe Title: </label>
-                <input class="add-form-item" name="Recipe_Title" id="Recipe_Title" placeholder="Recipe Title" type="text"><br>
+                <input class="add-form-item" name="Recipe_Title" id="Recipe_Title" placeholder="Recipe Title" type="text" required><br>
             </div>
 
             <div class="recipe-type-wrapper">
                 <label class="type-of-recipe-label" for="breakfast">Breakfast</label>
-                <input type="radio" class="add-form-item recipeType" id="breakfast" name="type-of-meal" value="Breakfast"> 
+                <input type="radio" class="add-form-item recipeType" id="breakfast" name="type-of-meal" value="Breakfast" required> 
                 <label class="type-of-recipe-label" for="lunch">Lunch</label>
                 <input type="radio" class="add-form-item recipeType" id="lunch" name="type-of-meal" value="Lunch"> 
                 <label class="type-of-recipe-label" for="breakfast">Dinner</label>
@@ -30,20 +31,20 @@
             
             <div class="recipe-expected-time-wrapper">
                 <label class="time-label" for="prep">Prep Time: </label>
-                <input class"add-form-item recipe-expected-prep-time" id="prep" name="prep" type="text" placeholder="00:00">
+                <input class"add-form-item recipe-expected-prep-time" id="prep" name="prep" type="text" placeholder="10" required>
                 <label class="time-label" for="time-hrs-prep">hrs</label>
-                <input type="radio" class="add-form-item time" id="time_hrs-prep" name="time_prep"> 
+                <input type="radio" class="add-form-item time" id="time_hrs-prep" name="time_prep" value="hrs" required> 
                 <label class="time-label" for="time-mins-prep">mins</label>
-                <input type="radio" class="add-form-item time" id="time-mins-prep" name="time_prep"> 
+                <input type="radio" class="add-form-item time" id="time-mins-prep" name="time_prep" value="mins"> 
                 
                 <br>
 
                 <label class="time-label" for="cook">Cook Time: </label>
-                <input class"add-form-item recipe-expected-cooking-time" type="text" id='cook' name='cook' placeholder="00:00"> 
+                <input class"add-form-item recipe-expected-cooking-time" type="text" id='cook' name='cook' placeholder="00" required> 
                 <label class="time-label" for="hr">hrs</label>
-                <input type="radio" class="add-form-item time" id="time_hrs-cook" name="time_cook"> 
+                <input type="radio" class="add-form-item time" id="time_hrs-cook" name="time_cook" value="hrs" required> 
                 <label class="time-label" for="minutes">mins</label>
-                <input type="radio" class="add-form-item time" id="time_mins-cook" name="time_cook"> 
+                <input type="radio" class="add-form-item time" id="time_mins-cook" name="time_cook" value="mins"> 
             </div>
 
             <div class="recipe-ingredients-wrapper">
@@ -64,13 +65,13 @@
                     }
                 </script>-->
                 Ingredients:
-                <input class="ingredients" name="ingredients" id="ingredients" type="text" placeholder="apples,bananas,....."> 
+                <input class="ingredients" name="ingredients" id="ingredients" type="text" placeholder="apples,bananas,....." required> 
 
             </div>
             
             <div class="recipe-instructions-wrapper">
                 <label class="instructions-label" for="instructions">Instructions: </label>
-                <input class="instructions" id="instructions" name="instructions" type="text"> 
+                <input class="instructions" id="instructions" name="instructions" type="text" required> 
             </div>
                 
             <div class="recipe-submit-wrapper">

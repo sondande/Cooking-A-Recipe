@@ -8,9 +8,9 @@
     <h1 class="borderColor">Recipes</h1>
     <div class="content-wrapper">
         {% for recipe in recipes %}
-
         <a href="/loggedin/viewrecipes/{{ recipe.id }}">{{ recipe }}</a>
-        
+        <a href="{{ url_for('profile.viewRecipes') }}/{{ recipe.id }}/delete">Delete:{{ recipe }}</a>
+        <a href="{{ url_for('profile.viewRecipes') }}/edit/{{ recipe.id }}">Edit</a>
         {% endfor %}
     </div>
 {% endblock %}

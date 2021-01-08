@@ -4,10 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
 db=SQLAlchemy()
-
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = os.urandom(26)
+    app.config["IMAGE_UPLOADS"] = os.path.join(app.root_path, 'static')
+    app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["jpeg", "jpg", "png", "gif"]
+    app.config["MAX_IMAGE_FILESIZE"] = 50 * 1024 * 1024
 
     basedir = os.path.abspath(os.path.dirname(__file__))
     app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+ os.path.join(basedir, "cAR.db")

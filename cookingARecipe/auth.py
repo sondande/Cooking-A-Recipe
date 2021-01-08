@@ -1,5 +1,5 @@
-from flask import Blueprint, redirect, render_template, url_for, request, flash
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask import Blueprint, redirect, render_template, url_for, request, flash, session
+from werkzeug.security import generate_password_hash
 from flask_login import login_user, logout_user, login_required
 from .models import User
 from . import db
@@ -15,12 +15,16 @@ def login():
 
         user = User.query.filter_by(email=email).first()
 
-        if not user or not check_password_hash(user.password, password):
+        if not user or not user.check_password(password):
             flash('Please check your login details and try again.')
             return redirect(url_for('auth.login'))
 
         login_user(user, remember=remember)
-        return redirect(url_for('profile.profilePage'))
+
+        session['email'] = email
+        session['uid'] = user.id
+
+        return redirect(url_for('profile.profilePage', id=user.id))
     else:
         return render_template('login.html')
 
@@ -41,7 +45,7 @@ def signup():
 
         db.session.add(new_user)
         db.session.commit()
-
+        session['name'] = name
         return redirect(url_for('auth.login'))
     else:
         return render_template('signup.html')
@@ -50,5 +54,6 @@ def signup():
 @auth.route('/logout')
 @login_required
 def logout():
+    session.pop('username', None)
     logout_user()
     return redirect(url_for('main.index'))

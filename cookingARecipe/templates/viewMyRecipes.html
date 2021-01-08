@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>View My Recipes</title>
+{% endblock %}
+
+{% block body %}
+    <h1 class="borderColor">My Recipes</h1>
+    <div class="content-wrapper">
+        {% for recipe in recipes %}
+        <a href="/loggedin/viewrecipes/{{ recipe.id }}">{{ recipe }}</a>
+        <a href="{{ url_for('profile.viewRecipes') }}/edit/{{ recipe.id }}">Edit</a>
+        <a href="{{ url_for('profile.viewRecipes') }}/{{ recipe.id }}/delete">Delete:{{ recipe }}</a><br>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+

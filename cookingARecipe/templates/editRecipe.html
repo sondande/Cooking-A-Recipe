@@ -18,6 +18,22 @@
                 <input class="add-form-item" name="Recipe_Title" id="Recipe_Title" type="text" value={{ recipe.Recipe_Title }} required><br>
             </div>
 
+            <div class="public-private-status">
+                <label class="public-private-status" for="public">Public</label>
+                {% if recipe.Recipe_Public_Status == "Public" %}
+                    <input type="radio" class="public-private-status" id="public" name="status" value="Public" checked required> 
+                {% else %}
+                    <input type="radio" class="public-private-status" id="public" name="status" value="Public" required> 
+                {% endif %}
+                
+                <label class="public-private-status" for="private">Private</label>
+                {% if recipe.Recipe_Public_Status == "Private" %}
+                    <input type="radio" class="public-private-status" id="private" name="status" value="Private" checked>
+                {% else %}
+                    <input type="radio" class="public-private-status" id="private" name="status" value="Private">
+                {% endif %}
+            </div>
+
             <div class="recipe-type-wrapper">
                 <label class="type-of-recipe-label" for="breakfast">Breakfast</label>
                 {% if recipe.Recipe_Type == "Breakfast"%}
@@ -40,7 +56,7 @@
                     <input type="radio" class="add-form-item recipeType" id="dinner2" name="type-of-meal" value="Dinner"> 
                 {% endif %}
 
-                <label class="type-of-recipe-label" for="desert">Desert</label>
+                <label class="type-of-recipe-label" for="desert">Dessert</label>
                 {% if recipe.Recipe_Type == "Desert" %}
                     <input type="radio" class="add-form-item recipeType" id="desert1" name="type-of-meal" value="Desert" checked>
                 {% else %}

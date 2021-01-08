@@ -4,16 +4,36 @@ body{
     font-family:fantasy;
 }
 
-button#downloadBtn {
-    background-color: #4CAF50; /* Green */
-    background-image: url("download.png");
-    border: none;
-    color: white;
-    padding: 15px 32px;
+h3 {
+    text-align: right;
+}
+
+.text-content {
+    border: aliceblue;
+}
+
+img {
+    position: absolute;
+    top: 107px;
+    top: 22%;
+    right: 0%;
+    padding-right: 9%;
+}
+
+h3 {
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    font-size: 2em;
+    padding: 10px;
+}
+
+#details {
+    text-align: right;
+    font-size: 19px;
+    padding-right: 5em;
+}
+
+#author {
+    text-align: right;
 }
 
 .images > img {
@@ -81,7 +101,7 @@ h1 {
 
 /* Borders for text */
 .borderColor{
-    border: 2px #ab885d solid;
+    border: 7px #ab885d solid;
 }
 
 /* Borders for forms*/

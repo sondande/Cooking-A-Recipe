@@ -12,10 +12,36 @@
     </div>
 
     <div class="content-wrapper">
-        <form class="add-form" action="{{ url_for('profile.addRecipe') }}" method="POST">
+        <form class="add-form" action="{{ url_for('profile.addRecipe') }}" method="POST" enctype="multipart/form-data">
             <div class='recipe-title-wrapper'>
                 <label class="recipe-title-label" for="Recipe_Title">Recipe Title: </label>
                 <input class="add-form-item" name="Recipe_Title" id="Recipe_Title" placeholder="Recipe Title" type="text" required><br>
+            </div>
+            
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification is-danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+            {% endwith %}
+            
+            {% if filename %}
+	            <div>
+		            <img src="{{ url_for('display_image', filename=filename) }}">
+	            </div>
+            {% endif %}
+
+            <div class="upload-image">
+                <input type="file" name="file" autocomplete="off" required>
+            </div>
+            
+
+            <div class="public-private-status">
+                <label class="public-private-status" for="public">Public</label>
+                <input type="radio" class="public-private-status" id="public" name="status" value="Public" required> 
+                <label class="public-private-status" for="private">Private</label>
+                <input type="radio" class="public-private-status" id="private" name="status" value="Private">
             </div>
 
             <div class="recipe-type-wrapper">
@@ -25,7 +51,7 @@
                 <input type="radio" class="add-form-item recipeType" id="lunch" name="type-of-meal" value="Lunch"> 
                 <label class="type-of-recipe-label" for="breakfast">Dinner</label>
                 <input type="radio" class="add-form-item recipeType" id="dinner" name="type-of-meal" value="Dinner"> 
-                <label class="type-of-recipe-label" for="desert">Desert</label>
+                <label class="type-of-recipe-label" for="desert">Dessert</label>
                 <input type="radio" class="add-form-item recipeType" id="desert" name="type-of-meal" value="Desert"><br> 
             </div> 
             

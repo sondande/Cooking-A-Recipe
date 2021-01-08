@@ -40,7 +40,7 @@ def profilePage():
 def viewMyRecipes():
     user = User.query.get(session['uid'])
     all_recipes = Recipes.query.filter(Recipes.Recipe_Author == user.name ).all()
-    return render_template('viewMyrecipes.html', recipes= all_recipes)
+    return render_template('viewMyrecipes.html', recipes=all_recipes)
 
 @profile.route('/viewrecipes', methods=['GET'])
 @login_required

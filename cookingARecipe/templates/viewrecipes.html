@@ -6,9 +6,45 @@
 
 {% block body %}
     <h1 class="borderColor">All Recipes</h1>
-    <div class="content-wrapper">
+    <div class="content-wrapper-MyRecipes">
         {% for recipe in recipes %}
-        <a href="/loggedin/viewrecipes/{{ recipe.id }}">{{ recipe }}</a><br>
-        {% endfor %}
+        <div class="recipe-img">
+	        <div class="recipe-img">
+		        <img id="recipe-img-viewmyrecipes" class="logo-wrapper portfolio-img-background" src="{{ url_for('profile.display_image', filename=recipe.Recipe_Img) }}">
+	        </div>
+            
+            <div class="img-text-wrapper portfolio-item-wrappeir">
+                <a class="subtitle" href="/loggedin/viewrecipes/{{ recipe.id }}">{{ recipe }}</a>
+            </div>
+        </div>
+        {%endfor%}
     </div>
+
+    <script>
+        const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper');
+
+        portfolioItems.forEach(portfolioItem => {
+            portfolioItem.addEventListener('mouseover', () => {
+                console.log(portfolioItem.childNodes[1].classList)
+                portfolioItem.childNodes[1].classList.remove('image-lighten');
+            })
+
+            portfolioItem.addEventListener('mouseover', () => {
+                console.log(portfolioItem.childNodes[1].classList)
+                portfolioItem.childNodes[1].classList.add('image-darken');
+            })
+
+             portfolioItem.addEventListener('mouseout', () => {
+                console.log(portfolioItem.childNodes[1].classList)
+                portfolioItem.childNodes[1].classList.add('image-lighten');
+            })
+
+            portfolioItem.addEventListener('mouseout', () => {
+                portfolioItem.childNodes[1].classList.remove('image-darken'); 
+            })
+        })
+    </script>
+
 {% endblock %}
+
+

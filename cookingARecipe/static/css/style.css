@@ -4,12 +4,8 @@ body{
     font-family:fantasy;
 }
 
-h3 {
+h3{
     text-align: right;
-}
-
-.text-content {
-    border: aliceblue;
 }
 
 img {
@@ -20,32 +16,101 @@ img {
     padding-right: 9%;
 }
 
-h3 {
+h3{
     text-align: center;
     font-size: 2em;
     padding: 10px;
 }
 
-#details {
+a {
+    color: black;
+}
+
+.content-wrapper-MyRecipes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#recipe-img-viewmyrecipes {
+    height: 300px;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#recipe-img {
+    width: 650px;
+    grid-area: image1;
+    /*
+   grid-column-start:1;
+   grid-column-end: 2;
+  */
+    border: 0.75em solid #d6b78e;
+    /* filter:grayscale(100%); */
+    overflow:hidden;
+    object-fit: contain;
+    margin: 0px 0px 0px 0px;
+}
+
+h3 {
     text-align: right;
+}
+
+.text-content {
+    border: aliceblue;
+}
+
+#download-button {
+    position: absolute;
+    top: 66%;
+    right: 3%;
+}
+
+h3 {
+    text-align: center;
+    font-size: 2em;
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    padding-top: 20px; /* This creates some space between the element and the border. */
+    border-bottom: 1px solid black; 
+}
+
+  .images > img {
+       object-fit: cover;
+       height: 400px;
+       width: auto;
+       position: relative;
+       margin: 5%;
+       padding: 10px;
+       grid-column: auto;
+       grid-row: 1 / -1;      /* from first line at start, to first line at end */
+       /* align-self: center; */    /* vertical centering */
+       place-self: center; /*centers image to be in the center of it's individual grid on CSS grid*/
+   }
+
+
+#details {
+    text-align: left;
     font-size: 19px;
-    padding-right: 5em;
+    padding-left: 4em;
 }
 
 #author {
     text-align: right;
 }
 
-.images > img {
-    object-fit: cover;
+.recipe-img > img {
     height: 400px;
-    width: auto;
+    max-height: 100%;
     position: relative;
-    margin: 5%;
     padding: 10px;
-    grid-column: auto;
-    grid-row: 1 / -1;      /* from first line at start, to first line at end */
-    /* align-self: center; */    /* vertical centering */
+     grid-column: auto; 
+     grid-row: 1 / -1;       /* from first line at start, to first line at end */
+    align-self: center;    /* vertical centering */
     place-self: center; /*centers image to be in the center of it's individual grid on CSS grid*/
 }
 
@@ -68,7 +133,6 @@ h3 {
 }
 
 h1 {
-    /*border: 2px #eee solid;*/
     color: #2f2f2f;
     text-align: center;
     padding: 10px;
@@ -116,3 +180,72 @@ pre{
 }
 
 /*Login/register.html*/
+
+.portfolio-items-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /*creates 3 columns that are each full sized*/
+}
+
+.portfolio-item-wrapper{
+    position: relative;  /* This has to be relative because it will allow us more lexability*/
+}
+
+.portfolio-img-background { /*Styles the cover pictures*/
+    height: 350px; 
+    width: 100%; /*Adjust automatically to the height*/
+    background-size: cover; /* Very helpful for when Images that are not the same size. It allows us to crop the image to fit nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.img-text-wrapper {
+    position: absolute; 
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 330px;
+    margin: 5px;
+    padding-left: 108px;
+    padding-right: 129px;
+    padding-bottom: 35px;
+    margin-bottom: 10px;
+}
+
+.img-text-wrapper .subtitle{
+    font-weight: 600;
+    color:transparent;
+    font-weight: 600;
+}
+
+.img-text-wrapper:hover .subtitle {
+    font-weight:600;
+    color:lightgreen;
+}
+
+.img-text-wrapper{
+    transition: 1s;
+    opacity: 0.0;
+}
+
+.img-text-wrapper:hover{
+    opacity: 1.0;
+}
+
+.image-darken{
+    transition: 1s;
+    filter: brightness(10%);
+}
+
+.image-lighten{
+    transition: 1s;
+    filter: brightness(100%);
+}
+
+.change-size {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  white-space: pre-wrap;
+}

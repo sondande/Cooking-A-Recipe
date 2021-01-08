@@ -5,22 +5,22 @@
 {% endblock %}
 
 {% block body %}
-    <div class="text-content borderColor">
+<div class="content-wrapper borderColor">
+    <div class="recipe-img">
+        {% if filename %}
+	        <div class="recipe-img">
+		        <img id="recipe-img" src="{{ url_for('profile.display_image', filename=filename) }}">
+	        </div>
+        {% endif %}
+    </div>
+
+    <div class="recipe-details">
         <div class="recipe-details">
             <h3 class="recipe-details">Title: {{ recipe.Recipe_Title }}</h3>
     
             <div onclick = "getPdf()">       
-                <img src="{{ url_for('static', filename='download.png') }}" alt="Download" height="25" width="25">
+                <img id="download-button" src="{{ url_for('static', filename='download.png') }}" alt="Download" height="25" width="25">
             </div>
-
-        </div>
-        
-        <div class="recipe-image">
-            {% if filename %}
-	            <div>
-		            <img src="{{ url_for('profile.display_image', filename=filename) }}">
-	            </div>
-            {% endif %}
 
         </div>
 
@@ -38,7 +38,7 @@
             </p>
         </div>
     </div>
-    
+</div>
     <script>
         function getPdf() {
             window.print()

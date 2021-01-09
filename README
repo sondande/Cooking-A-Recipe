@@ -12,10 +12,10 @@ GitHub README
 3. Why is it different?
 4. Installation Instructions:
     - Clone Repository 
-    - cd into repository 
-    - set FLASK_APP=cookingARecipe
-        -on terminal "export FLASK_APP=cookingARecipe"
-    - run "flask run"
+    - Cd into repository 
+    - Set FLASK_APP=cookingARecipe
+        -On terminal "export FLASK_APP=cookingARecipe"
+    - Run "flask run"
     - Go to link in output from "flask run" command
 5. How does it work?
     If you a new user, signup, login, and start logging in your family recipes.

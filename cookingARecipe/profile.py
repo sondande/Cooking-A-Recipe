@@ -103,6 +103,7 @@ def editRecipe(id):
         recipe.Recipe_Expected_Cook_Time = request.form['cook']
         recipe.Recipe_Time_Cook = request.form['time_cook']
         recipe.Recipe_Public_Status = request.form['status']
+
         db.session.commit()
         return redirect(url_for('profile.viewMyRecipes'))
     else:

@@ -24,7 +24,7 @@ def login():
         session['email'] = email
         session['uid'] = user.id
 
-        return redirect(url_for('profile.profilePage', id=user.id))
+        return redirect(url_for('profile.viewMyRecipes', id=user.id))
     else:
         return render_template('login.html')
 

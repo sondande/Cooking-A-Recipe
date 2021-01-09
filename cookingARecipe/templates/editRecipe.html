@@ -12,12 +12,12 @@
     </div>
 
     <div class="content-wrapper">
-        <form class="add-form" action="/loggedin/viewrecipes/edit/{{ recipe.id }}" method="POST">
+        <form class="add-form" action="/loggedin/viewrecipes/edit/{{ recipe.id }}" method="POST" enctype="multipart/form-data>
             <div class='recipe-title-wrapper'>
                 <label class="recipe-title-label" for="Recipe_Title">Recipe Title: </label>
                 <input class="add-form-item" name="Recipe_Title" id="Recipe_Title" type="text" value={{ recipe.Recipe_Title }} required><br>
             </div>
-
+            
             <div class="public-private-status">
                 <label class="public-private-status" for="public">Public</label>
                 {% if recipe.Recipe_Public_Status == "Public" %}

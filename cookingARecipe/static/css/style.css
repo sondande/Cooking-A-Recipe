@@ -90,6 +90,7 @@ h3 {
        grid-row: 1 / -1;      /* from first line at start, to first line at end */
        /* align-self: center; */    /* vertical centering */
        place-self: center; /*centers image to be in the center of it's individual grid on CSS grid*/
+       top: -5%;
    }
 
 
@@ -198,15 +199,15 @@ pre{
     background-repeat: no-repeat;
 }
 .img-text-wrapper {
-    position: absolute; 
-    top: 20%;
+    position: absolute;
+    top: 22%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 330px;
     margin: 5px;
-    padding-left: 108px;
+    padding-left: 65px;
     padding-right: 129px;
     padding-bottom: 35px;
     margin-bottom: 10px;
@@ -216,11 +217,6 @@ pre{
     font-weight: 600;
     color:transparent;
     font-weight: 600;
-}
-
-.img-text-wrapper:hover .subtitle {
-    font-weight:600;
-    color:lightgreen;
 }
 
 .img-text-wrapper{
@@ -248,4 +244,9 @@ pre{
   margin: 8px 0;
   box-sizing: border-box;
   white-space: pre-wrap;
+}
+
+.img-text-wrapper:hover .subtitle {
+    font-weight:600;
+    color:#26ff7f;
 }

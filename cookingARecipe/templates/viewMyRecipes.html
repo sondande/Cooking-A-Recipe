@@ -6,16 +6,16 @@
 
 {% block body %}
     <h1 class="borderColor">My Recipes</h1>
-    <div class="content-wrapper-MyRecipes">
+    <div class="content-wrapper-MyRecipes recipe-img-container">
         {% for recipe in recipes %}
-        <div class="recipe-img">
+        <div class="recipe-imge">
 	        <div class="recipe-img">
-		        <img id="recipe-img-viewmyrecipes" class="logo-wrapper portfolio-img-background" src="{{ url_for('profile.display_image', filename=recipe.Recipe_Img) }}">
+		        <img id="recipe-img-viewmyrecipes" class="recipe-img logo-wrapper portfolio-img-background" src="{{ url_for('profile.display_image', filename=recipe.Recipe_Img) }}">
 	        </div>
             
             <div class="img-text-wrapper portfolio-item-wrappeir">
                 <a class="subtitle" href="/loggedin/viewrecipes/{{ recipe.id }}">{{ recipe }}</a>
-                <a class="subtitle" href="{{ url_for('profile.viewRecipes') }}/edit/{{ recipe.id }}">Edit</a>
+                <a class="subtitle" href="{{ url_for('profile.viewRecipes') }}/edit/{{ recipe.id }}">Edit Recipe Contents</a>
                 <a class="subtitle" href="{{ url_for('profile.viewRecipes') }}/{{ recipe.id }}/delete">Delete</a><br>
             </div>
         </div>

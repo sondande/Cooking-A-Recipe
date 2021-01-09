@@ -10,7 +10,14 @@ GitHub README
     This website is a perfect resourece for anyone who wants to share their family recipes with their family without paying a dime!
 
 3. Why is it different?
-4. How do I use it? (installation instructions)
+4. Installation Instructions:
+    - Clone Repository 
+    - cd into repository 
+    - set FLASK_APP=cookingARecipe
+        -on terminal "export FLASK_APP=cookingARecipe"
+    - run "flask run"
+    - Go to link in output from "flask run" command
 5. How does it work?
     If you a new user, signup, login, and start logging in your family recipes.
     If you are a returning user, just login, view, edit, remove, or add new recipes!
+
